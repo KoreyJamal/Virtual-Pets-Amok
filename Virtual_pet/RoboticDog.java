@@ -12,19 +12,10 @@ public class RoboticDog extends RoboticPet{
         
         oilLevel-= 15;
         batteryLevel-= 30;
-        
-        if (oilLevel < 0){
-            oilLevel = 0;
-        }
-        if (oilLevel > 100){
-            oilLevel = 100;
-        }
-        if (batteryLevel< 0){
-            batteryLevel = 0;
-        }
-        if (batteryLevel > 100){
-            batteryLevel = 100;
-        }
         tick();
+        
+        oilLevel = Math.max(0, Math.min(100, oilLevel));
+        batteryLevel = Math.max(0, Math.min(100, batteryLevel));
+        
     }
 }
